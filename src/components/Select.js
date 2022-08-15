@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from 'react'
+import Space from '../assets/space.jpg'
+import Hollywood from '../assets/hollywood.jpg'
+import Factory from '../assets/factory.jpg'
 
 const Select = () => {
 
@@ -16,6 +19,7 @@ const Select = () => {
       })
       .then((data) => {
         data.forEach((level) => {
+          console.log(level);
           tempLevels.push(level.name);
           setLevels(tempLevels);
         })
@@ -27,9 +31,13 @@ const Select = () => {
   }, [])
 
   return (
-    <div>
+    <div className="select">
       <h2>hello from select</h2>
       <p>{levels}</p>
+      <img className="select-icon" src={Space} />
+      <img className="select-icon" src={Hollywood} />
+      <img className="select-icon" src={Factory} />
+
     </div>
   )
 }
