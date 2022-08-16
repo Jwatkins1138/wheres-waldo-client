@@ -7,9 +7,50 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+@font-face {
+  font-family: "lemon";
+  src: url('./assets/LemonMilk.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+h1 {
+  font-family: "lemon";
+}
+
+h2 {
+  font-family: "lemon";
+}
+
+h3 {
+  font-family: "lemon";
+}
+
+h4 {
+  font-family: "lemon";
+}
+
+h5 {
+  font-family: "lemon";
+}
+
+.enter:hover {
+  background-color: blue;
+}
+
+.home {
+  display: flex;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .select {

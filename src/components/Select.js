@@ -32,7 +32,7 @@ const Select = () => {
 
   return (
     <div className="select">
-      <h2>hello from select</h2>
+      <h2>select a level</h2>
       <p>{levels}</p>
       <img className="select-icon" src={Space} />
       <img className="select-icon" src={Hollywood} />
