@@ -7,6 +7,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+#root {
+  background-color: lightblue;
+}
+
 @font-face {
   font-family: "lemon";
   src: url('./assets/LemonMilk.otf') format('opentype');
@@ -45,6 +49,10 @@ h5 {
 
 .home {
   display: flex;
+  min-width: 100vw;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
 }
 
 .loading {
@@ -55,8 +63,7 @@ h5 {
 
 .select {
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+  flex-direction: column;
 }
 
 .select-icon {

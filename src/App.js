@@ -9,7 +9,6 @@ import { BrowserRouter, Routes, Route, Link } from "react-router-dom"
 function App() {
   return (
     <BrowserRouter>
-      <Link to="/" ><h1>wheres the guy</h1></ Link>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/select" element={<Select />} />

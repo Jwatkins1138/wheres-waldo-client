@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import Space from '../assets/space.jpg'
 import Hollywood from '../assets/hollywood.jpg'
 import Factory from '../assets/factory.jpg'
+import Header from './Header'
 import { Link } from 'react-router-dom'
 
 const Select = () => {
@@ -33,6 +34,7 @@ const Select = () => {
 
   return (
     <div className="select">
+      <Header />
       <h2>select a level</h2>
       <p>{levels}</p>
       <Link to="/space"><img className="select-icon" src={Space} /></Link>
