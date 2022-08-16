@@ -64,8 +64,22 @@ h5 {
 .select {
   display: flex;
   flex-direction: column;
+  align-items: center;
+}
+
+.select-main {
+  width: 80vw;
+}
+
+.level {
+  display: flex;
+  flex-direction: column;
 }
 
 .select-icon {
   max-width: 80%;
+}
+
+.level-image {
+  width: 100%;
 }

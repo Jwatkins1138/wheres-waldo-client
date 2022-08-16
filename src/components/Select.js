@@ -9,7 +9,7 @@ const Select = () => {
 
   const [levels, setLevels] = useState([]);
   const loadLevels = () => {
-    const url = "https://frozen-badlands-89928.herokuapp.com/api/v1/levels/index";
+    const url = "https://frozen-badlands-89928.herokuapp.com/api/v1/levels";
     var tempLevels = [];
     fetch(url)
       .then((data) => {
@@ -35,12 +35,13 @@ const Select = () => {
   return (
     <div className="select">
       <Header />
-      <h2>select a level</h2>
-      <p>{levels}</p>
-      <Link to="/space"><img className="select-icon" src={Space} /></Link>
-      <Link to="/hollywood"><img className="select-icon" src={Hollywood} /></Link>
-      <Link to="/factory"><img className="select-icon" src={Factory} /></Link>
-
+      <div className="select-main">
+        <h2>select a level</h2>
+        <p>{levels}</p>
+        <Link to="/space"><img className="select-icon" src={Space} /></Link>
+        <Link to="/hollywood"><img className="select-icon" src={Hollywood} /></Link>
+        <Link to="/factory"><img className="select-icon" src={Factory} /></Link>
+      </div>
     </div>
   )
 }
