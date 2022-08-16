@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import Header from './Header'
 
 const LeaderBoard = () => {
   const [scores, setScores] = useState([]);
@@ -37,6 +38,7 @@ const LeaderBoard = () => {
 
   return (
     <div className="leader-board">
+      <Header />
       <h1>leader board</h1>
       <div className="score-item">
         <h3>player</h3><h3>score</h3>
