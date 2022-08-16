@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import Space from '../assets/space.jpg'
 import Hollywood from '../assets/hollywood.jpg'
 import Factory from '../assets/factory.jpg'
+import { Link } from 'react-router-dom'
 
 const Select = () => {
 
@@ -34,9 +35,9 @@ const Select = () => {
     <div className="select">
       <h2>select a level</h2>
       <p>{levels}</p>
-      <img className="select-icon" src={Space} />
-      <img className="select-icon" src={Hollywood} />
-      <img className="select-icon" src={Factory} />
+      <Link to="/space"><img className="select-icon" src={Space} /></Link>
+      <Link to="/hollywood"><img className="select-icon" src={Hollywood} /></Link>
+      <Link to="/factory"><img className="select-icon" src={Factory} /></Link>
 
     </div>
   )
