@@ -27,10 +27,7 @@ const Space = () => {
   return (
     <div className="level">
       <Header />
-      <h2>space</h2>
-      <p>{level.name}</p>
-      <p></p>
-      <p>{level.waldo_location}</p>
+      <h2>{level.name}</h2>
       <img className="level-image" src={SpacePic} />
     </div>
   )
