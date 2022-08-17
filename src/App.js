@@ -4,6 +4,7 @@ import Space from "./components/Space"
 import Factory from "./components/Factory"
 import Hollywood from "./components/Hollywood"
 import LeaderBoard from "./components/LeaderBoard"
+import Game from './components/Game'
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom"
 
 
@@ -17,6 +18,8 @@ function App() {
         <Route path="/space" element={<Space />} />
         <Route path="/factory" element={<Factory />} />
         <Route path="/hollywood" element={<Hollywood />} />
+        <Route path="/game" element={<Game />} />
+        
       </Routes>
     </BrowserRouter>
   );

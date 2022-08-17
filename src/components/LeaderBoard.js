@@ -2,10 +2,14 @@ import React, { useState, useEffect } from 'react'
 import Header from './Header'
 
 const LeaderBoard = () => {
-  const [scores, setScores] = useState([]);
+  const [spaceScores, setSpaceScores] = useState([]);
+  const [hollywoodScores, setHollywoodScores] = useState([]);
+  const [factoryScores, setFactoryScores] = useState([]);
   const loadScores = () => {
     const url = "https://frozen-badlands-89928.herokuapp.com/api/v1/scores";
-    var tempScores = [];
+    var tempSpace = [];
+    var tempHollywood = [];
+    var tempFactory = [];
     fetch(url)
       .then((data) => {
         if (data.ok) {
@@ -16,12 +20,18 @@ const LeaderBoard = () => {
       })
       .then((data) => {
         data.forEach((score) => {
-          console.log(score);
-          tempScores.push(score);
-          setScores(tempScores);
+          if (score.level_id === 1) {
+            tempSpace.push(score);
+            setSpaceScores(tempSpace);
+          } else if (score.level_id === 2) {
+              tempHollywood.push(score);
+              setHollywoodScores(tempHollywood);
+          } else if (score.level_id === 3) {
+              tempFactory.push(score);
+              setFactoryScores(tempFactory);
+          }
         })
       })
-      console.log(scores);
   }
 
   const drawScores = (score) => {
@@ -43,7 +53,22 @@ const LeaderBoard = () => {
       <div className="score-item">
         <h3>player</h3><h3>score</h3>
       </div>
-      {scores.map((score) => {
+      <div className="score-item">
+        <h4>level: space</h4>
+      </div>
+      {spaceScores.map((score) => {
+        return drawScores(score);
+      })}
+      <div className="score-item">
+        <h4>level: hollywood</h4>
+      </div>
+      {hollywoodScores.map((score) => {
+        return drawScores(score);
+      })}
+      <div className="score-item">
+        <h4>level: factory</h4>
+      </div>
+      {factoryScores.map((score) => {
         return drawScores(score);
       })}
     </div>
