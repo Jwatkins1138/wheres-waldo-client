@@ -101,6 +101,16 @@ a {
   max-width: 100%;
 }
 
+.select-info {
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  margin-top: .5em;
+  margin-bottom: .5em;
+  padding: .5em;
+  border-bottom: 1px solid rgb(0, 0, 0, .5);
+}
+
 .level-image {
   width: 100%;
   position:absolute;
@@ -109,4 +119,26 @@ a {
 .score-item {
   display: flex;
   justify-content: space-between;
+}
+
+.score-title {
+  display: flex;
+  justify-content: center;
+  border-top: 1px solid gold;
+  border-bottom: 1px solid gold;
+  margin: .5em;
+}
+
+.leader-board {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.board-container {
+  width: 80vw;
+  background-color: rgb(255, 255, 255, .3);
+  margin: .5em;
+  padding: .5em;
+
 }
