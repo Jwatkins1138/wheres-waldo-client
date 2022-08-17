@@ -102,7 +102,7 @@ a {
 }
 
 .select-info {
-  background-color: white;
+  background-color: rgb(255, 255, 255, .3);
   display: flex;
   justify-content: space-between;
   margin-top: .5em;

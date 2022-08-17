@@ -42,11 +42,11 @@ const Select = () => {
       <Header />
       <div className="select-main">
         <h2>select a level</h2>
-        <div className="select-info"><span>level name: {space.name}</span><span>high score:</span></div>
+        <div className="select-info"><span>level name: {space.name}</span></div>
         <Link to="/game" state={{levelID: 1}}><img className="select-icon" src={Space} /></Link>
-        <div className="select-info"><span>level name: {hollywood.name}</span><span>high score:</span></div>
+        <div className="select-info"><span>level name: {hollywood.name}</span></div>
         <Link to="/game" state={{levelID: 2}}><img className="select-icon" src={Hollywood} /></Link>
-        <div className="select-info"><span>level name: {factory.name}</span><span>high score:</span></div>
+        <div className="select-info"><span>level name: {factory.name}</span></div>
         <Link to="/game" state={{levelID: 3}}><img className="select-icon" src={Factory} /></Link>
       </div>
     </div>
