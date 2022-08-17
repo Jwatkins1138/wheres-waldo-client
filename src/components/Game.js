@@ -3,27 +3,53 @@ import Space from '../assets/space.jpg'
 import Hollywood from '../assets/hollywood.jpg'
 import Factory from '../assets/factory.jpg'
 import React, { useState, useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
 
 const Game = (props) => {
 
+  const location = useLocation()
+  const { levelID } = location.state
+  const [level, setLevel] = useState({});
+  const loadLevel = () => {
+    const url = `https://frozen-badlands-89928.herokuapp.com/api/v1/levels/${levelID}`;
+    fetch(url)
+      .then((data) => {
+        if (data.ok) {
+          console.log(data);
+          return data.json();
+        }
+      throw new Error("network error"); 
+      })
+      .then((data) => {
+        setLevel(data)
+        })
+        console.log(level);
+  }
+
+  useEffect(() => {
+    loadLevel();
+  }, [])
+
   const setPic = () => {
-    if (props.id === 1) {
+    if (levelID === 1) {
       return Space;
-    } else if (props.id === 2) {
+    } else if (levelID === 2) {
       return Hollywood;
-    } else if (props.id === 3) {
+    } else if (levelID === 3) {
       return Factory;
     } else {
-      return Space;
+      return Factory;
     }
     
   }
+
+  const pic = setPic();
 
   const setScore = () => {
     var tempScore = {
       player: 'test player from react',
       seconds: 250,
-      level_id: 1
+      level_id: levelID
     };
     const url = "https://frozen-badlands-89928.herokuapp.com/api/v1/scores";
     fetch(url, {
@@ -39,9 +65,10 @@ const Game = (props) => {
   return (
     <div className="level">
       <Header />
-      <h2>{props.name}</h2>
-      <img className="level-image" src={setPic} />
-      <button onClick={setScore}>test score</button>
+      <h2>{level.name}</h2>
+      <div className='game-area'>
+        <img className="level-image" src={pic} />
+      </div>
     </div>
   )
 }

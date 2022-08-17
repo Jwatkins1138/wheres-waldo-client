@@ -5,11 +5,11 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: radial-gradient(at top left, blue, white);
+  background-size: cover;
+  background-attachment: fixed;
 }
 
-#root {
-  background-color: lightblue;
-}
 
 @font-face {
   font-family: "lemon";
@@ -43,16 +43,37 @@ h5 {
   font-family: "lemon";
 }
 
+header {
+  border-bottom: 2px solid gold;
+  width: 100%;
+}
+
+a {
+  color: red;
+  text-decoration: none;
+}
+
 .enter:hover {
-  background-color: blue;
+  transform: scale(1.1);
 }
 
 .home {
   display: flex;
+  flex-direction: column;
   min-width: 100vw;
   min-height: 100vh;
   justify-content: center;
   align-items: center;
+}
+
+.home-title {
+  display: flex;
+}
+
+.home-links {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .loading {
@@ -82,6 +103,7 @@ h5 {
 
 .level-image {
   width: 100%;
+  position:absolute;
 }
 
 .score-item {
