@@ -14,7 +14,7 @@ const GameHeader = () => {
       <img className="head-image" src={Wenda} />
       <img className="head-image" src={Wizard} />
       <img className="head-image" src={Odlaw} />
-      <div className="timer">00:00</div>
+      <div className="timer"><h4>00:00</h4></div>
     </header>
   )
 }
