@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import Header from './Header'
-import Waldo from '../assets/waldo.png'
+import Waldo from '../assets/waldo_home.png'
 
 const Home = () => {
   return (

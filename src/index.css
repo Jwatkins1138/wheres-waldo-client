@@ -46,6 +46,14 @@ h5 {
 header {
   border-bottom: 2px solid gold;
   width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.head-image {
+  height: 6em;
+  border: 2px solid red;
+  margin: .5em;
 }
 
 a {

@@ -1,4 +1,4 @@
-import Header from './Header'
+import GameHeader from './GameHeader'
 import Space from '../assets/space.jpg'
 import Hollywood from '../assets/hollywood.jpg'
 import Factory from '../assets/factory.jpg'
@@ -64,8 +64,7 @@ const Game = (props) => {
 
   return (
     <div className="level">
-      <Header />
-      <h2>{level.name}</h2>
+      <GameHeader />
       <div className='game-area'>
         <img className="level-image" src={pic} />
       </div>
