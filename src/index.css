@@ -64,6 +64,7 @@ header {
 
 .timer {
   color: red;
+  width: 6em;
 }
 
 a {
@@ -176,4 +177,17 @@ a {
   margin: .5em;
   padding: .5em;
 
+}
+
+.about {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.about-box {
+  width: 80vw;
+  background-color: rgb(255, 255, 255, .3);
+  margin: .5em;
+  padding: .5em;
 }

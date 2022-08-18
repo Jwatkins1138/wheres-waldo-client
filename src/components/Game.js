@@ -9,7 +9,25 @@ const Game = (props) => {
 
   const location = useLocation()
   const { levelID } = location.state
+
   const [level, setLevel] = useState({});
+
+  const [game, setGame] = useState(false);
+  const [waldo, setWaldo] = useState(false);
+  const [woof, setWoof] = useState(false);
+  const [wenda, setWenda] = useState(false);
+  const [wizard, setWizard] = useState(false);
+  const [odlaw, setOdlaw] = useState(false);
+
+  const gameProps = {
+    game: game,
+    waldo: waldo,
+    woof: woof,
+    wenda: wenda,
+    wizard: wizard,
+    odlaw: odlaw
+  }
+
   const loadLevel = () => {
     const url = `https://frozen-badlands-89928.herokuapp.com/api/v1/levels/${levelID}`;
     fetch(url)
@@ -64,7 +82,7 @@ const Game = (props) => {
 
   return (
     <div className="level">
-      <GameHeader />
+      <GameHeader gameProps={gameProps}/>
       <div className='game-area'>
         <img className="level-image" src={pic} />
       </div>

@@ -50,7 +50,7 @@ const LeaderBoard = () => {
     <div className="leader-board">
       <Header />
       <div className="board-container">
-        <h1>leader board</h1>
+        <h2>leader board</h2>
         <div className="score-item">
           <h3>player</h3><h3>score</h3>
         </div>
