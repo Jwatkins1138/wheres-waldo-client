@@ -46,11 +46,11 @@ const GameHeader = (props) => {
       ) : ( 
       <>
       <Link to="/" ><h1>wheres the guy</h1></ Link>
-      <img className="head-image" src={Waldo} />
-      <img className="head-image" src={Woof} />
-      <img className="head-image" src={Wenda} />
-      <img className="head-image" src={Wizard} />
-      <img className="head-image" src={Odlaw} />
+      <img className={props.gameProps.waldo.toString()} src={Waldo} />
+      <img className={props.gameProps.woof.toString()} src={Woof} />
+      <img className={props.gameProps.wenda.toString()} src={Wenda} />
+      <img className={props.gameProps.wizard.toString()} src={Wizard} />
+      <img className={props.gameProps.odlaw.toString()} src={Odlaw} />
       <div className="timer"><h4>{timeConvert(time)}</h4></div>
       </>
       )}

@@ -1,12 +1,11 @@
 import GameHeader from './GameHeader'
-import ScoreModal from './ScoreModal'
 import Space from '../assets/space.jpg'
 import Hollywood from '../assets/hollywood.jpg'
 import Factory from '../assets/factory.jpg'
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { useLocation } from 'react-router-dom'
 
-const Game = (props) => {
+const Game = () => {
 
   const location = useLocation()
   const { levelID } = location.state
@@ -27,7 +26,7 @@ const Game = (props) => {
     wenda: wenda,
     wizard: wizard,
     odlaw: odlaw,
-    ID: 1
+    ID: levelID
   }
 
   const loadLevel = () => {
@@ -52,33 +51,55 @@ const Game = (props) => {
 
   const setPic = () => {
     if (levelID === 1) {
-      gameProps.ID = 1;
       return Space;
     } else if (levelID === 2) {
-      gameProps.ID = 2;
       return Hollywood;
     } else if (levelID === 3) {
-      gameProps.ID = 3;
       return Factory;
     } else {
       return Factory;
     }
-    
   }
 
   const pic = setPic();
+
+  const imageRef = useRef(null);
+
+  const showClick = (e) => {
+    console.log(`clicked ${e.pageX/imageRef.current.width} ${e.pageY/imageRef.current.height}`);
+  }
 
   const endGame = () => {
     setGame(true);
   }
 
+  const findWaldo = () => {
+    setWaldo(true);
+  }
+
+  const findWoof = () => {
+    setWoof(true);
+  }
+
+  const findWenda = () => {
+    setWenda(true);
+  }
+
+  const findWizard = () => {
+    setWizard(true);
+  }
+
+  const findOdlaw = () => {
+    setOdlaw(true);
+  }
+
+
   return (
     <div className="level">
-      <GameHeader gameProps={gameProps}/>
-      <button onClick={endGame}>end</button>
       <div className='game-area'>
-        <img className="level-image" src={pic} />
+        <img ref={imageRef} onClick={showClick} className="level-image" src={pic} />
       </div>
+      <GameHeader gameProps={gameProps}/>
     </div>
   )
 }
