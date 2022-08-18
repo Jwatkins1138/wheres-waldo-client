@@ -34,10 +34,22 @@ const LeaderBoard = () => {
       })
   }
 
+  const timeConvert = (time) => {
+    var h = Math.floor(time / 3600);
+    var m = Math.floor(time % 3600 / 60);
+    var s = Math.floor(time % 3600 % 60);
+
+    h < 10 ? h = `0${h}` : h = h;
+    m < 10 ? m = `0${m}` : m = m;
+    s < 10 ? s = `0${s}` : s = s;
+
+    return `${h}:${m}:${s}`
+  }
+
   const drawScores = (score) => {
     return (
       <div key={score.player} className="score-item">
-        <span>{score.player}</span><span>{score.seconds}</span>
+        <li><span>{score.player}</span></li><span>{timeConvert(score.seconds)}</span>
       </div>
     )
   }
@@ -57,21 +69,27 @@ const LeaderBoard = () => {
         <div className="score-title">
           <h4>level: space</h4>
         </div>
+        <ol>
         {spaceScores.map((score) => {
           return drawScores(score);
         })}
+        </ol>
         <div className="score-title">
           <h4>level: hollywood</h4>
         </div>
+        <ol>
         {hollywoodScores.map((score) => {
           return drawScores(score);
         })}
+        </ol>
         <div className="score-title">
           <h4>level: factory</h4>
         </div>
+        <ol>
         {factoryScores.map((score) => {
           return drawScores(score);
         })}
+        </ol>
       </div>
     </div>
   )

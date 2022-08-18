@@ -14,6 +14,10 @@ const GameHeader = (props) => {
     var m = Math.floor(time % 3600 / 60);
     var s = Math.floor(time % 3600 % 60);
 
+    h < 10 ? h = `0${h}` : h = h;
+    m < 10 ? m = `0${m}` : m = m;
+    s < 10 ? s = `0${s}` : s = s;
+
     return `${h}:${m}:${s}`
   }
   
