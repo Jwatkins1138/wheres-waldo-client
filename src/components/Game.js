@@ -5,6 +5,7 @@ import Factory from '../assets/factory.jpg'
 import React, { useState, useEffect, useRef } from 'react'
 import { useLocation } from 'react-router-dom'
 
+
 const Game = () => {
 
   const location = useLocation()
@@ -96,10 +97,11 @@ const Game = () => {
 
   return (
     <div className="level">
+      <GameHeader gameProps={gameProps}/>
       <div className='game-area'>
         <img ref={imageRef} onClick={showClick} className="level-image" src={pic} />
       </div>
-      <GameHeader gameProps={gameProps}/>
+      <aside></aside>
     </div>
   )
 }

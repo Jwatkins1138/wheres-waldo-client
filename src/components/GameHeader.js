@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom'
 import React, { useState, useEffect } from 'react'
 import ScoreModal from './ScoreModal'
 import Waldo from '../assets/waldo.png'
@@ -6,6 +5,7 @@ import Woof from '../assets/woof.png'
 import Wenda from '../assets/wenda.png'
 import Wizard from '../assets/wizard.png'
 import Odlaw from '../assets/odlaw.png'
+import { Link } from 'react-router-dom'
 
 const GameHeader = (props) => {
   const [time, setTime] = useState(0);
@@ -39,13 +39,13 @@ const GameHeader = (props) => {
   }, [props.gameProps.game])
   
   return (
-    <header>
+    <aside>
       <>
       {props.gameProps.game?(
         <ScoreModal scoreProps={scoreProps}/>
       ) : ( 
       <>
-      <Link to="/" ><h1>wheres the guy</h1></ Link>
+      <Link to="/"><h1>home</h1></Link>
       <img className={props.gameProps.waldo.toString()} src={Waldo} />
       <img className={props.gameProps.woof.toString()} src={Woof} />
       <img className={props.gameProps.wenda.toString()} src={Wenda} />
@@ -55,7 +55,7 @@ const GameHeader = (props) => {
       </>
       )}
       </>
-    </header>
+    </aside>
   )
 }
 
