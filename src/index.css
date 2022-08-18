@@ -45,11 +45,10 @@ h5 {
 
 header {
   border-bottom: 2px solid gold;
-  width: 100%;
+  min-width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
-  padding-right: 10em;
 }
 
 .head-image {
@@ -58,13 +57,22 @@ header {
   margin: .5em;
 }
 
+.fill-image {
+  height: 6em;
+  margin: .5em;
+}
+
 .timer {
-  color: gold;
+  color: red;
 }
 
 a {
-  color: red;
+  color: gold;
   text-decoration: none;
+}
+
+.enter {
+  color: red;
 }
 
 .enter:hover {
