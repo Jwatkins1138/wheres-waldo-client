@@ -1,4 +1,5 @@
 import GameHeader from './GameHeader'
+import ScoreModal from './ScoreModal'
 import Space from '../assets/space.jpg'
 import Hollywood from '../assets/hollywood.jpg'
 import Factory from '../assets/factory.jpg'
@@ -25,7 +26,8 @@ const Game = (props) => {
     woof: woof,
     wenda: wenda,
     wizard: wizard,
-    odlaw: odlaw
+    odlaw: odlaw,
+    ID: 1
   }
 
   const loadLevel = () => {
@@ -50,10 +52,13 @@ const Game = (props) => {
 
   const setPic = () => {
     if (levelID === 1) {
+      gameProps.ID = 1;
       return Space;
     } else if (levelID === 2) {
+      gameProps.ID = 2;
       return Hollywood;
     } else if (levelID === 3) {
+      gameProps.ID = 3;
       return Factory;
     } else {
       return Factory;
@@ -63,26 +68,14 @@ const Game = (props) => {
 
   const pic = setPic();
 
-  const setScore = () => {
-    var tempScore = {
-      player: 'test player from react',
-      seconds: 250,
-      level_id: levelID
-    };
-    const url = "https://frozen-badlands-89928.herokuapp.com/api/v1/scores";
-    fetch(url, {
-      method: 'post',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(tempScore),
-    })
-
+  const endGame = () => {
+    setGame(true);
   }
 
   return (
     <div className="level">
       <GameHeader gameProps={gameProps}/>
+      <button onClick={endGame}>end</button>
       <div className='game-area'>
         <img className="level-image" src={pic} />
       </div>

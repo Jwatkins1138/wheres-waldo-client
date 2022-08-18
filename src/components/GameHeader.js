@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import React, { useState, useEffect } from 'react'
+import ScoreModal from './ScoreModal'
 import Waldo from '../assets/waldo.png'
 import Woof from '../assets/woof.png'
 import Wenda from '../assets/wenda.png'
@@ -8,6 +9,10 @@ import Odlaw from '../assets/odlaw.png'
 
 const GameHeader = (props) => {
   const [time, setTime] = useState(0);
+  const scoreProps = {
+    score: time,
+    ID: props.gameProps.ID
+  }
 
   const timeConvert = (time) => {
     var h = Math.floor(time / 3600);
@@ -20,19 +25,26 @@ const GameHeader = (props) => {
 
     return `${h}:${m}:${s}`
   }
-  
+
 
   useEffect(() => {
-    const counter = setInterval(() => {
+    const interval = setInterval(() => {
+      if (props.gameProps.game) {
+        return () => clearInterval(interval);
+      } else {
       setTime(time => time + 1);
+      }
     },1000);
-    if (props.gameProps.game) {
-      clearInterval(counter);
-    }
-  }, [])
+    return () => clearInterval(interval);
+  }, [props.gameProps.game])
   
   return (
     <header>
+      <>
+      {props.gameProps.game?(
+        <ScoreModal scoreProps={scoreProps}/>
+      ) : ( 
+      <>
       <Link to="/" ><h1>wheres the guy</h1></ Link>
       <img className="head-image" src={Waldo} />
       <img className="head-image" src={Woof} />
@@ -40,6 +52,9 @@ const GameHeader = (props) => {
       <img className="head-image" src={Wizard} />
       <img className="head-image" src={Odlaw} />
       <div className="timer"><h4>{timeConvert(time)}</h4></div>
+      </>
+      )}
+      </>
     </header>
   )
 }
