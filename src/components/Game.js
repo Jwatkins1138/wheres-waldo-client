@@ -67,7 +67,7 @@ const Game = () => {
   const imageRef = useRef(null);
 
   const showClick = (e) => {
-    console.log(`clicked ${e.pageX/imageRef.current.width} ${e.pageY/imageRef.current.height}`);
+    console.log(`clicked ${e.pageX/window.innerWidth} ${e.pageY/imageRef.current.height}`);
   }
 
   const endGame = () => {

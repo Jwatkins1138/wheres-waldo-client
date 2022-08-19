@@ -82,6 +82,8 @@ aside {
 .timer {
   color: red;
   width: 4em;
+  display: flex;
+  justify-content: center;
 }
 
 a {
