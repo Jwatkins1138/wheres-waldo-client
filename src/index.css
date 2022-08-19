@@ -64,12 +64,14 @@ aside {
   height: 4em;
   border: 2px solid red;
   margin: .5em;
+  aspect-ratio: 1;
 }
 
 .true {
   height: 4em;
   border: 2px solid lime;
   margin: .5em;
+  aspect-ratio: 1;
 }
 
 .fill-image {
@@ -141,12 +143,21 @@ a {
 
 .select-main {
   width: 80vw;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 
 
 .select-icon {
-  max-width: 100%;
+  max-width: 38vw;
+  margin: .5em;
+}
+
+.select-item {
+  display: flex;
+  flex-direction: column;
 }
 
 .select-info {
