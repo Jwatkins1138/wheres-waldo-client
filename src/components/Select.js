@@ -3,10 +3,12 @@ import Space from '../assets/space.jpg'
 import Hollywood from '../assets/hollywood.jpg'
 import Track from '../assets/track.jpg'
 import Header from './Header'
+import Loading from './Loading'
 import { Link } from 'react-router-dom'
 
 const Select = () => {
 
+  const [loading, setLoading] = useState(true);
   const [space, setSpace] = useState({});
   const [hollywood, setHollywood] = useState({});
   const [track, setTrack] = useState({});
@@ -31,6 +33,9 @@ const Select = () => {
           }
         })
       })
+      .then(() => {
+        setLoading(false);
+      })
   }
 
   useEffect(() => {
@@ -39,6 +44,11 @@ const Select = () => {
 
   return (
     <div className="select">
+      <>
+      {loading ? (
+        <Loading /> 
+      ) : (
+      <>
       <Header />
       <h2>select a level</h2>
       <div className="select-main">
@@ -55,6 +65,9 @@ const Select = () => {
         <Link to="/game" state={{levelID: 3}}><img className="select-icon" src={Track} /></Link>
         </div>
       </div>
+      </>
+      )}
+      </>
     </div>
   )
 }

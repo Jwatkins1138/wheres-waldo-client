@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import Header from './Header'
+import Loading from './Loading'
 
 const LeaderBoard = () => {
+  const [loading, setLoading] = useState(true);
   const [spaceScores, setSpaceScores] = useState([]);
   const [hollywoodScores, setHollywoodScores] = useState([]);
   const [factoryScores, setFactoryScores] = useState([]);
@@ -13,7 +15,6 @@ const LeaderBoard = () => {
     fetch(url)
       .then((data) => {
         if (data.ok) {
-          console.log(data);
           return data.json();
         }
       throw new Error("network error"); 
@@ -32,6 +33,9 @@ const LeaderBoard = () => {
           }
         })
       })
+      .then(() => {
+        setLoading(false);
+      })
   }
 
   const timeConvert = (time) => {
@@ -48,7 +52,7 @@ const LeaderBoard = () => {
 
   const drawScores = (score) => {
     return (
-      <div key={score.player} className="score-item">
+      <div key={score.id} className="score-item">
         <li><span>{score.player}</span></li><span>{timeConvert(score.seconds)}</span>
       </div>
     )
@@ -60,6 +64,11 @@ const LeaderBoard = () => {
 
   return (
     <div className="leader-board">
+      <>
+      {loading ? (
+        <Loading /> 
+      ) : (
+      <>
       <Header />
       <div className="board-container">
         <h2>leader board</h2>
@@ -83,7 +92,7 @@ const LeaderBoard = () => {
         })}
         </ol>
         <div className="score-title">
-          <h4>level: factory</h4>
+          <h4>level: track</h4>
         </div>
         <ol>
         {factoryScores.map((score) => {
@@ -91,6 +100,9 @@ const LeaderBoard = () => {
         })}
         </ol>
       </div>
+      </>
+      )}
+      </>
     </div>
   )
 }

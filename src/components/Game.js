@@ -1,4 +1,5 @@
 import GameHeader from './GameHeader'
+import Loading from './Loading'
 import Space from '../assets/space.jpg'
 import Hollywood from '../assets/hollywood.jpg'
 import Track from '../assets/track.jpg'
@@ -8,8 +9,10 @@ import { useLocation } from 'react-router-dom'
 
 const Game = () => {
 
-  const location = useLocation()
-  const { levelID } = location.state
+  const [loading, setLoading] = useState(true);
+
+  const location = useLocation();
+  const { levelID } = location.state;
 
   const [level, setLevel] = useState({});
 
@@ -42,8 +45,10 @@ const Game = () => {
       })
       .then((data) => {
         setLevel(data)
-        })
-        console.log(level);
+      })
+      .then(() => {
+        setLoading(false);
+      })
   }
 
   useEffect(() => {
@@ -66,9 +71,6 @@ const Game = () => {
 
   const imageRef = useRef(null);
 
-  const showClick = (e) => {
-    console.log(`clicked ${e.nativeEvent.offsetX/e.target.offsetWidth} ${e.nativeEvent.offsetY/e.target.offsetHeight}`);
-  }
 
   const compareLocation = (locA, locB) => {
     console.log(locA);
@@ -85,7 +87,6 @@ const Game = () => {
 
 
   const checkClick = (e) => {
-    showClick(e);
     var loc = [e.nativeEvent.offsetX/e.target.offsetWidth*100, e.nativeEvent.offsetY/e.target.offsetHeight*100];
     if (compareLocation(loc, level.waldo_location)) {
       setWaldo(true);
@@ -110,34 +111,21 @@ const Game = () => {
     }
   }
 
-  const findWaldo = () => {
-    setWaldo(true);
-  }
-
-  const findWoof = () => {
-    setWoof(true);
-  }
-
-  const findWenda = () => {
-    setWenda(true);
-  }
-
-  const findWizard = () => {
-    setWizard(true);
-  }
-
-  const findOdlaw = () => {
-    setOdlaw(true);
-  }
-
-
   return (
     <div className="level">
+      <>
+      {loading ? (
+        <Loading /> 
+      ) : (
+      <>
       <GameHeader gameProps={gameProps}/>
       <div className='game-area'>
         <img ref={imageRef} onClick={checkClick} className="level-image" src={pic} />
       </div>
       <aside></aside>
+      </>
+      )}
+      </>
     </div>
   )
 }
