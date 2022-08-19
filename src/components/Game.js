@@ -1,7 +1,7 @@
 import GameHeader from './GameHeader'
 import Space from '../assets/space.jpg'
 import Hollywood from '../assets/hollywood.jpg'
-import Factory from '../assets/factory.jpg'
+import Track from '../assets/track.jpg'
 import React, { useState, useEffect, useRef } from 'react'
 import { useLocation } from 'react-router-dom'
 
@@ -56,9 +56,9 @@ const Game = () => {
     } else if (levelID === 2) {
       return Hollywood;
     } else if (levelID === 3) {
-      return Factory;
+      return Track;
     } else {
-      return Factory;
+      return Track;
     }
   }
 

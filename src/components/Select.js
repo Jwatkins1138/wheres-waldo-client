@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Space from '../assets/space.jpg'
 import Hollywood from '../assets/hollywood.jpg'
-import Factory from '../assets/factory.jpg'
+import Track from '../assets/track.jpg'
 import Header from './Header'
 import { Link } from 'react-router-dom'
 
@@ -9,7 +9,7 @@ const Select = () => {
 
   const [space, setSpace] = useState({});
   const [hollywood, setHollywood] = useState({});
-  const [factory, setFactory] = useState({});
+  const [track, setTrack] = useState({});
   const loadLevels = () => {
     const url = "https://frozen-badlands-89928.herokuapp.com/api/v1/levels";
     fetch(url)
@@ -27,7 +27,7 @@ const Select = () => {
           } else if (level.id === 2) {
             setHollywood(level);
           } else if (level.id === 3) {
-            setFactory(level);
+            setTrack(level);
           }
         })
       })
@@ -51,8 +51,8 @@ const Select = () => {
         <Link to="/game" state={{levelID: 2}}><img className="select-icon" src={Hollywood} /></Link>
         </div>
         <div className="select-item">
-        <div className="select-info"><span>level name: {factory.name}</span></div>
-        <Link to="/game" state={{levelID: 3}}><img className="select-icon" src={Factory} /></Link>
+        <div className="select-info"><span>level name: {track.name}</span></div>
+        <Link to="/game" state={{levelID: 3}}><img className="select-icon" src={Track} /></Link>
         </div>
       </div>
     </div>
