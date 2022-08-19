@@ -62,16 +62,16 @@ aside {
 
 .false {
   height: 4em;
+  width: 4em;
   border: 2px solid red;
   margin: .5em;
-  aspect-ratio: 1;
 }
 
 .true {
   height: 4em;
+  width: 4em;
   border: 2px solid lime;
   margin: .5em;
-  aspect-ratio: 1;
 }
 
 .fill-image {
