@@ -234,8 +234,9 @@ a {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  transform: translateX(250%);
+  transform: translate(250%, 50%);
   border: 1px solid gold;
+  padding: .5em;
 }
 
 form {
@@ -243,4 +244,14 @@ form {
   flex-direction: column;
   padding: .5em;
   margin: .5em;
+}
+
+button {
+  padding: .2em;
+  background: white;
+  border: 1px solid red;
+}
+
+button:hover {
+  background: red;
 }

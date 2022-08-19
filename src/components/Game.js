@@ -67,7 +67,7 @@ const Game = () => {
   const imageRef = useRef(null);
 
   const showClick = (e) => {
-    console.log(`clicked ${e.pageX/window.innerWidth} ${e.pageY/window.innerHeight}`);
+    console.log(`clicked ${e.nativeEvent.offsetX/e.target.offsetWidth} ${e.nativeEvent.offsetY/e.target.offsetHeight}`);
   }
 
   const compareLocation = (locA, locB) => {
@@ -86,7 +86,7 @@ const Game = () => {
 
   const checkClick = (e) => {
     showClick(e);
-    var loc = [e.pageX/window.innerWidth*100, e.pageY/window.innerHeight*100];
+    var loc = [e.nativeEvent.offsetX/e.target.offsetWidth*100, e.nativeEvent.offsetY/e.target.offsetHeight*100];
     if (compareLocation(loc, level.waldo_location)) {
       setWaldo(true);
     } else if (compareLocation(loc, level.woof_location)) {
@@ -98,9 +98,11 @@ const Game = () => {
     } else if (compareLocation(loc, level.odlaw_location)) {
       setOdlaw(true);
     }
-
-    setTimeout(checkGame(), 1000);
   }
+
+  useEffect(() => {
+    checkGame();
+  }, [waldo,  woof, wenda, wizard, odlaw])
 
   const checkGame = () => {
     if ((waldo) && (woof) && (wenda) && (wizard) && (odlaw)) {
