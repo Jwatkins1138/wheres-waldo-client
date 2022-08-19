@@ -67,7 +67,32 @@ const Game = () => {
   const imageRef = useRef(null);
 
   const showClick = (e) => {
-    console.log(`clicked ${e.pageX/window.innerWidth} ${e.pageY/imageRef.current.height}`);
+    console.log(`clicked ${e.pageX/window.innerWidth} ${e.pageY/window.innerHeight}`);
+  }
+
+  const compareLocation = (locA, locB) => {
+    console.log(locA);
+    console.log(locB);
+    if ((locA[0] >= locB[0][0])
+       && (locA[0] <= locB[0][1])
+       && (locA[1] >= locB[1][0])
+       && (locA[1] <= locB[1][1]) ) {
+        return true;
+       } else {
+        return false;
+       }
+  }
+
+
+  const checkClick = (e) => {
+    showClick(e);
+    var loc = [e.pageX/window.innerWidth*100, e.pageY/window.innerHeight*100];
+    if (compareLocation(loc, level.waldo_location)) {
+      setWaldo(true);
+      console.log("waldo");
+    }
+    
+
   }
 
   const endGame = () => {
@@ -99,7 +124,7 @@ const Game = () => {
     <div className="level">
       <GameHeader gameProps={gameProps}/>
       <div className='game-area'>
-        <img ref={imageRef} onClick={showClick} className="level-image" src={pic} />
+        <img ref={imageRef} onClick={checkClick} className="level-image" src={pic} />
       </div>
       <aside></aside>
     </div>
