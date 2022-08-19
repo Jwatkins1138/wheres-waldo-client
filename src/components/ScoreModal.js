@@ -40,8 +40,8 @@ const ScoreModal = (props) => {
   return (
     <div className="modal">
       <div className="modal-message">
-        <h3>it took you {timeConvert(props.scoreProps.score)} to find the guys</h3>
-        <h3>enter your name for the leaderboard</h3>
+        <h5>it took you {timeConvert(props.scoreProps.score)} to find the guys</h5>
+        <h5>enter your name for the leaderboard</h5>
       </div>
       <form>
         <label htmlFor="name">name</label>

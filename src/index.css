@@ -229,8 +229,13 @@ a {
 }
 
 .modal {
+  background: rgb(255, 255, 255, .8);
   display: flex;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
+  transform: translateX(250%);
+  border: 1px solid gold;
 }
 
 form {

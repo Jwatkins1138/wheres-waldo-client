@@ -89,14 +89,23 @@ const Game = () => {
     var loc = [e.pageX/window.innerWidth*100, e.pageY/window.innerHeight*100];
     if (compareLocation(loc, level.waldo_location)) {
       setWaldo(true);
-      console.log("waldo");
+    } else if (compareLocation(loc, level.woof_location)) {
+      setWoof(true);
+    } else if (compareLocation(loc, level.wenda_location)) {
+      setWenda(true);
+    } else if (compareLocation(loc, level.wizard_location)) {
+      setWizard(true);
+    } else if (compareLocation(loc, level.odlaw_location)) {
+      setOdlaw(true);
     }
-    
 
+    setTimeout(checkGame(), 1000);
   }
 
-  const endGame = () => {
-    setGame(true);
+  const checkGame = () => {
+    if ((waldo) && (woof) && (wenda) && (wizard) && (odlaw)) {
+      setGame(true);
+    }
   }
 
   const findWaldo = () => {
