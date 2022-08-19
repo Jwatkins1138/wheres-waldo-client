@@ -144,8 +144,8 @@ a {
 .select-main {
   width: 80vw;
   display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
 }
 
 
